@@ -1,0 +1,14 @@
+{
+    "openmetrics": {
+        "instances": [
+            {
+                "openmetrics_endpoint": "http://%%host%%:8080/metrics",
+                "metrics": [
+                    {"promhttp_metric_handler_requests": "handler.requests"},
+                    {"promhttp_metric_handler_requests_in_flight": "handler.requests.in_flight"},
+                    "go_memory.*"
+                ]
+            }
+        ]
+    }
+}  

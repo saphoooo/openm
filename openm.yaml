@@ -13,11 +13,27 @@ spec:
     metadata:
       labels:
         app: openm
+      annotations:
+        ad.datadoghq.com/openm.checks: |
+          {
+            "openmetrics": {
+              "instances": [
+                {
+                  "openmetrics_endpoint": "http://192.168.64.99:30000/metrics",
+                  "namespace": "openm",
+                  "metrics": [
+                    ".*"
+                  ]
+                }
+              ]
+            }
+          }           
     spec:
       containers:
-      #- name: container
-      #  image: saphoooo/openm:latest
-      - name: container
+      - name: openm
+        image: openm:latest
+        imagePullPolicy: Never
+      - name: nginx
         image: nginx:latest
 ---
 apiVersion: v1
