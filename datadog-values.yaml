@@ -1,0 +1,7 @@
+datadog:
+  apiKeyExistingSecret: datadog-secret
+  tags:
+    - env:dev
+  clusterName: tambi
+  kubelet:
+    tlsVerify: false
